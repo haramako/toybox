@@ -560,7 +560,7 @@ int dev_makedev(int major, int minor)
 #endif
 }
 
-char *fs_type_name(struct statfs *statfs)
+char *fs_type_name_(struct statfs *statfs)
 {
 #if defined(__APPLE__)
   // macOS has an `f_type` field, but assigns values dynamically as filesystems

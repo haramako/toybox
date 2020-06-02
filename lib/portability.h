@@ -143,8 +143,8 @@ void *memmem(const void *haystack, size_t haystack_length,
 
 #else
 
-#include <byteswap.h>
-#include <endian.h>
+//#include <byteswap.h>
+//#include <endian.h>
 
 #if __BYTE_ORDER == __BIG_ENDIAN
 #define IS_BIG_ENDIAN 1
@@ -175,9 +175,9 @@ void *memmem(const void *haystack, size_t haystack_length,
 // Linux headers not listed by POSIX or LSB
 #include <sys/mount.h>
 #ifdef __linux__
-#include <sys/statfs.h>
-#include <sys/swap.h>
-#include <sys/sysinfo.h>
+//#include <sys/statfs.h>
+//#include <sys/swap.h>
+//#include <sys/sysinfo.h>
 #endif
 
 #ifdef __APPLE__
@@ -228,7 +228,7 @@ static inline void endutxent(void) {;}
 #endif
 
 // Some systems don't define O_NOFOLLOW, and it varies by architecture, so...
-#include <fcntl.h>
+//#include <fcntl.h>
 #ifndef O_NOFOLLOW
 #define O_NOFOLLOW 0
 #endif
@@ -317,7 +317,7 @@ extern CODE prioritynames[], facilitynames[];
 #endif
 
 #if CFG_TOYBOX_GETRANDOM
-#include <sys/random.h>
+//#include <sys/random.h>
 #endif
 int xgetrandom(void *buf, unsigned len, unsigned flags);
 

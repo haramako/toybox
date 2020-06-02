@@ -342,6 +342,7 @@ void tty_sigreset(int i);
 void start_redraw(unsigned *width, unsigned *height);
 
 // net.c
+#ifdef ENABLE_NET
 
 union socksaddr {
   struct sockaddr s;
@@ -363,8 +364,12 @@ char *ntop(struct sockaddr *sa);
 void xsendto(int sockfd, void *buf, size_t len, struct sockaddr *dest);
 int xrecvwait(int fd, char *buf, int len, union socksaddr *sa, int timeout);
 
+#endif
+
+#ifdef ENABLE_PASSWORD
 // password.c
 int get_salt(char *salt, char * algo);
+#endif
 
 // commas.c
 void comma_args(struct arg_list *al, void *data, char *err,
@@ -381,6 +386,7 @@ long long gzip_fd(int infd, int outfd);
 long long gunzip_fd(int infd, int outfd);
 
 // getmountlist.c
+#ifdef ENABLE_MOUNTLIST
 struct mtab_list {
   struct mtab_list *next, *prev;
   struct stat stat;
@@ -393,13 +399,16 @@ struct mtab_list {
 
 int mountlist_istype(struct mtab_list  *ml, char *typelist);
 struct mtab_list *xgetmountlist(char *path);
+#endif
 
 // signal
 
+#ifdef ENABLE_SIGNAL
 void generic_signal(int signal);
 void exit_signal(int signal);
 void sigatexit(void *handler);
 void list_signals();
+#endif
 
 mode_t string_to_mode(char *mode_str, mode_t base);
 void mode_to_string(mode_t mode, char *buf);

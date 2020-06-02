@@ -1,3 +1,4 @@
+#ifdef ENABLE_NET
 #include "toys.h"
 
 int xsocket(int domain, int type, int protocol)
@@ -170,3 +171,4 @@ int xrecvwait(int fd, char *buf, int len, union socksaddr *sa, int timeout)
 
   return len;
 }
+#endif

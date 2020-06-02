@@ -31,14 +31,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include <strings.h>
-#include <sys/mman.h>
-#include <sys/resource.h>
-#include <sys/stat.h>
-#include <sys/statvfs.h>
-#include <sys/time.h>
-#include <sys/times.h>
-#include <sys/utsname.h>
-#include <sys/wait.h>
+//#include <sys/mman.h>
+//#include <sys/resource.h>
+//#include <sys/stat.h>
+//#include <sys/statvfs.h>
+//#include <sys/time.h>
+//#include <sys/times.h>
+//#include <sys/utsname.h>
+//#include <sys/wait.h>
 #include <syslog.h>
 #include <termios.h>
 #include <time.h>
@@ -47,6 +47,7 @@
 
 // Posix networking
 
+#if 0
 #include <arpa/inet.h>
 #include <netdb.h>
 #include <net/if.h>
@@ -55,6 +56,7 @@
 #include <poll.h>
 #include <sys/socket.h>
 #include <sys/un.h>
+#endif
 
 // Internationalization support (also in POSIX and LSB)
 

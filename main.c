@@ -23,6 +23,10 @@ struct toy_context toys;
 union global_union this;
 char toybuf[4096], libbuf[4096];
 
+void _start(){
+	main(0,NULL);
+}
+
 struct toy_list *toy_find(char *name)
 {
   int top, bottom, middle;
