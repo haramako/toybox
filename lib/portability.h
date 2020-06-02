@@ -38,7 +38,10 @@
 // This also lets us determine what libc we're using. Systems that
 // have <features.h> will transitively include it, and ones that don't --
 // macOS -- won't break.
+#include <sys/_types.h>
 #include <sys/types.h>
+#include <stdint.h>
+#include <__config>
 
 // Various constants old build environments might not have even if kernel does
 
@@ -228,7 +231,7 @@ static inline void endutxent(void) {;}
 #endif
 
 // Some systems don't define O_NOFOLLOW, and it varies by architecture, so...
-//#include <fcntl.h>
+#include <fcntl.h>
 #ifndef O_NOFOLLOW
 #define O_NOFOLLOW 0
 #endif
