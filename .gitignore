@@ -12,3 +12,5 @@ toybox_unstripped
 GPATH
 GRTAGS
 GTAGS
+
+emtpy.c

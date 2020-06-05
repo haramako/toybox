@@ -386,7 +386,7 @@ long long gzip_fd(int infd, int outfd);
 long long gunzip_fd(int infd, int outfd);
 
 // getmountlist.c
-#ifdef ENABLE_MOUNTLIST
+//#ifdef ENABLE_MOUNTLIST
 struct mtab_list {
   struct mtab_list *next, *prev;
   struct stat stat;
@@ -399,14 +399,16 @@ struct mtab_list {
 
 int mountlist_istype(struct mtab_list  *ml, char *typelist);
 struct mtab_list *xgetmountlist(char *path);
-#endif
+//#endif
 
 // signal
 
-#ifdef ENABLE_SIGNAL
 void generic_signal(int signal);
+#ifdef ENABLE_SIGNAL
 void exit_signal(int signal);
+#endif
 void sigatexit(void *handler);
+#ifdef ENABLE_SIGNAL
 void list_signals();
 #endif
 

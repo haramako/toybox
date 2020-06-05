@@ -5,6 +5,7 @@
 
 // Stuff that needs to go before the standard headers
 
+#include <stddef.h>
 #include "generated/config.h"
 #include "lib/portability.h"
 
@@ -31,14 +32,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include <strings.h>
-//#include <sys/mman.h>
-//#include <sys/resource.h>
-//#include <sys/stat.h>
-//#include <sys/statvfs.h>
-//#include <sys/time.h>
-//#include <sys/times.h>
-//#include <sys/utsname.h>
-//#include <sys/wait.h>
+#include <sys/mman.h>
+#include <sys/resource.h>
+#include <sys/stat.h>
+#include <sys/statvfs.h>
+#include <sys/time.h>
+#include <sys/times.h>
+#include <sys/utsname.h>
+#include <sys/wait.h>
 #include <syslog.h>
 #include <termios.h>
 #include <time.h>
@@ -47,7 +48,7 @@
 
 // Posix networking
 
-#if 0
+#if 1
 #include <arpa/inet.h>
 #include <netdb.h>
 #include <net/if.h>

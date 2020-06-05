@@ -38,10 +38,7 @@
 // This also lets us determine what libc we're using. Systems that
 // have <features.h> will transitively include it, and ones that don't --
 // macOS -- won't break.
-#include <sys/_types.h>
 #include <sys/types.h>
-#include <stdint.h>
-#include <__config>
 
 // Various constants old build environments might not have even if kernel does
 
@@ -146,8 +143,8 @@ void *memmem(const void *haystack, size_t haystack_length,
 
 #else
 
-//#include <byteswap.h>
-//#include <endian.h>
+#include <byteswap.h>
+#include <endian.h>
 
 #if __BYTE_ORDER == __BIG_ENDIAN
 #define IS_BIG_ENDIAN 1
@@ -175,12 +172,14 @@ void *memmem(const void *haystack, size_t haystack_length,
 #define SWAP_LE64(x) (x)
 #endif
 
+#include "syscall_func.h"
+
 // Linux headers not listed by POSIX or LSB
 #include <sys/mount.h>
 #ifdef __linux__
-//#include <sys/statfs.h>
-//#include <sys/swap.h>
-//#include <sys/sysinfo.h>
+#include <sys/statfs.h>
+#include <sys/swap.h>
+#include <sys/sysinfo.h>
 #endif
 
 #ifdef __APPLE__
@@ -320,7 +319,7 @@ extern CODE prioritynames[], facilitynames[];
 #endif
 
 #if CFG_TOYBOX_GETRANDOM
-//#include <sys/random.h>
+#include <sys/random.h>
 #endif
 int xgetrandom(void *buf, unsigned len, unsigned flags);
 

@@ -603,6 +603,10 @@ int get_block_device_size(int fd, unsigned long long* size)
 #elif defined(__linux__)
 int get_block_device_size(int fd, unsigned long long* size)
 {
+	#if 0
   return (ioctl(fd, BLKGETSIZE64, size) >= 0);
+  #else
+  return 0;
+  #endif
 }
 #endif

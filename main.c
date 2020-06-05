@@ -19,62 +19,15 @@ struct toy_list toy_list[] = {
 
 // global context for this command.
 
-ssize_t readlink (const char *__restrict __path, char *__restrict __buf, size_t __len){}
-DIR *fdopendir (int __fd){}
-struct dirent *readdir (DIR *__dirp){}
-int closedir (DIR *__dirp){}
-int getpwuid_r (__uid_t __uid, struct passwd *__restrict __resultbuf, char *__restrict __buffer, size_t __buflen, struct passwd **__restrict __result){}
-int getgrgid_r (__gid_t __gid, struct group *__restrict __resultbuf, char *__restrict __buffer, size_t __buflen, struct group **__restrict __result){}
-ssize_t fgetxattr (int __fd, const char *__name, void *__value, size_t __size){}
-ssize_t flistxattr (int __fd, char *__list, size_t __size){}
-int fsetxattr (int __fd, const char *__name, const void *__value, size_t __size, int __flags){}
-int ioctl (int __fd, unsigned long int __request, ...){}
-void siglongjmp (sigjmp_buf __env, int __val){}
-char *getcwd (char *__buf, size_t __size){}
-int faccessat (int __fd, const char *__file, int __type, int __flag){}
-int linkat (int __fromfd, const char *__from, int __tofd, const char *__to, int __flags){}
-int mknodat (int __fd, const char *__path, __mode_t __mode, __dev_t __dev){}
-int fchownat (int __fd, const char *__file, __uid_t __owner, __gid_t __group, int __flag){}
-int fchown (int __fd, __uid_t __owner, __gid_t __group){}
-__uid_t geteuid (void){}
-int utimensat (int __fd, const char *__path, const struct timespec __times[2], int __flags){}
-int futimens (int __fd, const struct timespec __times[2]){}
-int fchmod (int __fd, __mode_t __mode){}
-int stat (const char *__restrict __file, struct stat *__restrict __buf){}
-int dup (int __fd){}
-void *sbrk (intptr_t __delta){}
-int kill (__pid_t __pid, int __sig){}
-__pid_t getpid (void){}
-__off_t lseek (int __fd, __off_t __offset, int __whence){}
-int mkdirat (int __fd, const char *__path, __mode_t __mode){}
-void _exit (int __status){}
-//ssize_t read (int __fd, void *__buf, size_t __nbytes){}
-int symlinkat (const char *__from, int __tofd, const char *__to){}
-__mode_t umask (__mode_t __mask){}
-//char *basename (const char *__filename){}
-ssize_t readlinkat (int __fd, const char *__restrict __path, char *__restrict __buf, size_t __len){}
-//ssize_t write (int __fd, const void *__buf, size_t __n){}
-int isatty (int __fd){}
-int open (const char *__file, int __oflag, ...){}
-int unlinkat (int __fd, const char *__name, int __flag){}
-int fstat (int __fd, struct stat *__buf){}
-int fstatat (int __fd, const char *__restrict __file, struct stat *__restrict __buf, int __flag){}
-int openat (int __fd, const char *__file, int __oflag, ...){}
-int close (int __fd){}
-
-_READ_WRITE_RETURN_TYPE read (int __fd, void *__buf, size_t __nbytes){}
-_READ_WRITE_RETURN_TYPE write (int __fd, const void *__buf, size_t __nbyte){}
-char *basename (char *__filename){}
+FILE *stdout;
+FILE *stderr;
+int *__errno_location(void){return 0;}
+void siglongjmp(){ for(;;); }
+char *__xpg_basename(char *path){ return NULL; }
 
 struct toy_context toys;
 union global_union this;
 char toybuf[4096], libbuf[4096];
-
-int main(int argc, char *argv[]);
-
-void _start(){
-	main(0,NULL);
-}
 
 struct toy_list *toy_find(char *name)
 {
