@@ -23,7 +23,7 @@ FILE *stdout;
 FILE *stderr;
 int *__errno_location(void){return 0;}
 void siglongjmp(){ for(;;); }
-char *__xpg_basename(char *path){ return NULL; }
+char *__xpg_basename(char *path){ return path; } // TODO: fix
 
 struct toy_context toys;
 union global_union this;
